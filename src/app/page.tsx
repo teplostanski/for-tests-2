@@ -1,7 +1,8 @@
 import styles from './page.module.css';
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 async function getData() {
-  const res = await fetch('http://127.0.0.1:3000/api/hello', {
+  const res = await fetch(`${API_URL}/api/hello`, {
     // cache: "force-cache", ///< SSG getStaticSideProps
     cache: 'no-store', ///< SSR getServerSideProps
     //next: {
