@@ -1,16 +1,6 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 
-//export async function getStaticProps() {
-//  const res = await fetch('http://127.0.0.1:3000/api/hello');
-//  const projects = await res.json();
-//  return {
-//    props: {
-//      projects,
-//    },
-//  };
-//}
-
 export async function getData() {
   const res = await fetch('http://127.0.0.1:3000/api/hello', {
     // cache: "force-cache", ///< SSG getStaticSideProps
@@ -20,25 +10,11 @@ export async function getData() {
     //},
   });
   const hello = await res.json();
-
-  console.log('kjhgfd', hello);
-
   return hello;
 }
 
-//export const getStaticProps: GetStaticProps = async () => {
-//  const res = await fetch('http://127.0.0.1:3000/api/hello')
-//  const hello = await res.json()
-//  return {
-//    props: {
-//      hello,
-//    }
-//  }
-//}
-
 export default async function Home() {
   const hello = await getData();
-  //console.log(typeof hello);
   const data = [hello];
   console.log(data);
 
